@@ -1,9 +1,9 @@
 import os
 import shutil
 from imgutils.metrics import ccip_difference
+import time
 
-
-
+start = time.time()
 threshold = 0.1
 # os.makedirs("split/haha")
 ref_images_list = [i.split('.png')[0] for i in os.listdir("ref") if '.png' in i]
@@ -33,7 +33,7 @@ for i in images:
             shutil.copy2(img, destination)
             break
 
-
+print("time taken:", time.time()-start)
 # print(ccip_difference('images/pain1.png', 'images/pain2.png'))
 # print(ccip_difference('images/pain1.png', 'images/pain3.png'))
 # print(ccip_difference('images/pain1.png', 'images/kushina1.png'))
